@@ -46,7 +46,10 @@ def process(args,client):
                 membersList.remove(server.get_member_named("RandomUserBot#1105"))
                 # shuffle the list to make it random
                 shuffle(membersList)
+                stringlist = ""
                 # for each member in the list
                 for member in membersList:
                 # Implement a string return that contains a list of all members
-                    return member
+                    if member.status == discord.Status.online:
+                        stringlist = stringlist + str(member) + "\n"
+                return stringlist
