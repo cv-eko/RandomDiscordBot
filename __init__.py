@@ -26,6 +26,8 @@ def on_message(message):
                 var = plugin.process(args,client)
                 if(plugin.type == "message"):
                     yield from client.send_message(message.channel, var)
+                elif(plugin.type == "file"):
+                    yield from client.send_file(message.channel,var)
             
             
 client.run("BOT_KEY")
